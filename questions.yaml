@@ -1123,14 +1123,6 @@
   Explanation: The tilde allows only the rightmost version to increment.
   Question: "What does this code do?\nterrafrom {\n   required_providers {\n     aws\
     \ = \"~> 3.0\"\n   }\n}\n"
-- A: true
-  Answer: B
-  B: false
-  Explanation: "You can\u2019t refer to a resource using the splat operator [*] if\
-    \ the resource uses a for_each argument. This is because in this case the resource\
-    \ is a map of objects rather than a list of objects. The splat operator applies\
-    \ only to lists. https://developer.hashicorp.com/terraform/language/expressions/splat"
-  Question: You can reference a resource created with for_each using a Splat (*) expression.
 - A: Your cloud infrastructure
   Answer: B
   B: Your state file
