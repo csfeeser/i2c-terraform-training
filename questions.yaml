@@ -248,18 +248,6 @@
     state. It is thus primarily useful for general verification of reusable modules,
     including correctness of attribute names and value types.
   Question: terraform validate validates the syntax of Terraform files.
-- A: Run terraform plan -destroy.
-  Answer: A, D
-  B: This is not possible. You can only show resources that will be created.
-  C: Run terraform state rm *.
-  D: Run terraform destroy and it will first output all the resources that will be
-    deleted before prompting for approval.
-  Explanation: https://www.examtopics.com/discussions/hashicorp/view/79158-exam-terraform-associate-topic-1-question-134-discussion/
-  Question: You have used Terraform to create an ephemeral development environment
-    in the cloud and are now ready to destroy all the infrastructure described by
-    your Terraform configuration. To be safe, you would like to first see all the
-    infrastructure that will be deleted by Terraform. Which command should you use
-    to show all of the resources that will be deleted? (Choose two.)
 - A: true
   Answer: B
   B: false
@@ -1135,22 +1123,6 @@
   Explanation: The tilde allows only the rightmost version to increment.
   Question: "What does this code do?\nterrafrom {\n   required_providers {\n     aws\
     \ = \"~> 3.0\"\n   }\n}\n"
-- A: "provider \"aws\" {\n  profile = var.aws_profile\n  region = var.aws_region\n\
-    }\nprovider \"datadog\" {\n  api_key = var.datadog_api_key\n  app_key = var.datadog_app_key\n\
-    }\n"
-  Answer: B
-  B: "provider \"aws\" {\n  profile = var.aws_profile\n  region = var.aws_region\n\
-    }\n\nprovider \"datadog\" {\n  api_key = var.datadog_api_key\n  app_key = var.datadog_app_key\n\
-    }\n"
-  C: "terraform {\n  provider \"aws\" {\n    profile = var.aws_profile\n    region\
-    \ = var.aws_region\n  }\n\n  provider \"datadog\" {\n    api_key = var.datadog_api_key\n\
-    \    app_key = var.datadog_app_key\n  }\n}\n"
-  Explanation: Is not A because each provider needs the 'provider' keyword to be used.
-    Not C because that example is used for config aliases. The correct syntax for
-    defining multiple providers in Terraform is provided in option B.
-  Question: You are creating a Terraform configuration which needs to make use of
-    multiple providers, one for AWS and one for Datadog. Which of the following provider
-    blocks would allow you to do this?
 - A: true
   Answer: B
   B: false
