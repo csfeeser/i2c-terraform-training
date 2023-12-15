@@ -780,18 +780,6 @@
     update state file.
   Question: When using Terraform to deploy resources into Azure, which scenarios are
     true regarding state files? (Choose two.)
-- A: alias = west
-  Answer: C
-  B: provider = west
-  C: provider = aws.west
-  D: alias = aws.west
-  Explanation: alias is not a meta-argument
-  Question: "You need to deploy resources into two different cloud regions in the\
-    \ same Terraform configuration. To do that, you declare multiple provider configurations\
-    \ as follows:\nprovider \"aws\" {\n   region = \"us-east-1\"\n}\nprovider \"aws\"\
-    \ {\n   alias = \"west\"\n   region = \"us-west-2\"\n}\nWhat meta-argument do\
-    \ you need to configure in a resource block to deploy the resource to the `us-west-2`\
-    \ AWS region?\n"
 - A: Add node_count = var.node_count
   Answer: C
   B: Declare the variable in a terraform.tfvars file
@@ -810,16 +798,6 @@
     default value, or it can be assigned a new value by code that imports the module.
   Question: If a module declares a variable with a default, that variable must also
     be defined within the module.
-- A: Environment Variables
-  Answer: C
-  B: secure string
-  C: A Terraform provider
-  D: A -var flag
-  Explanation: We can use providers to supply variable values (vault for example).
-    We can provide input variable value in parameter for apply command. We can use
-    environment variables. HashiCorp is not mentioning anything about secure strings.
-  Question: Which option cannot be used to keep secrets out of Terraform configuration
-    files?
 - A: With a Sentinel policy, which runs before every apply
   Answer: A
   B: By adding variables to each TFE workspace to ensure these settings are always
@@ -860,13 +838,13 @@
   Question: "FILL IN THE BLANK - In the below configuration, how would you reference\
     \ the module output vpc_id?\nmodule \"vpc\" {\n  source = \"terrafrom-and-module/vpc/aws\"\
     \n  cidr = \"10.0.0.0/16\"\n  name = \"test-vpc\"\n}\n"
-- A: aws_instance.example.ebs_block_device.[*].volume_id
+- A: aws_instance.example.ebs_block_device.[*].volume_size
   Answer: D
-  B: aws_instance.example.ebs_block_device.volume_id
-  C: aws_instance.example.ebs_block_device[sda2,sda3].volume_id
-  D: aws_instance.example.ebs_block_device.*.volume_id
+  B: aws_instance.example.ebs_block_device.volume_size
+  C: aws_instance.example.ebs_block_device[sda2,sda3].volume_size
+  D: aws_instance.example.ebs_block_device.*.volume_size
   Explanation: A's brackets are not allowed
-  Question: "How would you reference the Volume IDs associated with the ebs_block_device\
+  Question: "How would you reference the Volume sizes associated with the ebs_block_device\
     \ blocks in this configuration?\nresource \"aws_instance\" \"example\" {\n  ami\
     \ = \"ami-abc123\"\n  instance_type = \"t2.micro\"\nebs_block_device{\n  device_name\
     \ = \"sda2\"\n  volume_size = 16\n}\nebs_block_device {\n  device_name = \"sda3\"\
